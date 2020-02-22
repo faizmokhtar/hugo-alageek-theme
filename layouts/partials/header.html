@@ -6,7 +6,7 @@
             <div class="col-auto{{ if not $isTocEnabled }} offset-lg-1{{ end }} d-none d-md-block">
                 {{ if .Site.Params.logofile }}
                     <a href="{{ .Site.BaseURL }}">
-                        <img class="logo" src="{{ .Site.Params.logofile | absURL }}" alt="logo">
+                        <img class="logo rounded-circle" src="{{ .Site.Params.logofile | absURL }}" alt="logo">
                     </a>
                 {{ end }}
             </div>
