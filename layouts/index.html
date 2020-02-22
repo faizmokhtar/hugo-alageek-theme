@@ -21,6 +21,18 @@
                             </ul>
                         </div>
                     {{ end }}
+                    {{ if .Site.Params.show_projects }}
+                        <div class="mx-0 mx-md-4 best-posts">
+                            <div class="page-heading">🛠 Projects</div>
+                            <ul>
+                                {{ range .Site.Data.projects }}
+                                    <li>
+                                        <a href="{{ .Url }}">{{ .Title }}</a>
+                                    </li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                    {{ end }}
                     {{ if isset .Site.Params "best_posts" }}
                         <div class="mx-0 mx-md-4 best-posts">
                             <div class="page-heading">📌 {{ i18n "pinned" }}</div>
