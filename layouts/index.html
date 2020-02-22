@@ -8,7 +8,19 @@
                     <div class="markdown">
                         {{ partial "content" . }}
                     </div>
-
+                    {{ if .Site.Params.latest_posts }}
+                        <div class="mx-0 mx-md-4 best-posts">
+                            <div class="page-heading">📌 {{ i18n "latest_posts" }}</div>
+                            <ul>
+                                {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+                                {{ range $paginator.Pages }}
+                                    <li>
+                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                    </li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                    {{ end }}
                     {{ if isset .Site.Params "best_posts" }}
                         <div class="mx-0 mx-md-4 best-posts">
                             <div class="page-heading">📌 {{ i18n "pinned" }}</div>
